@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CNODE</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!-- 头部 -->
+<div id='app' class="app">
+    <div class="head">
+      <a href="https://cnodejs.org/" target="_blank">cnodejs.org</a>
+    </div>
+
+    <!-- 文章列表没有来得及加载显示的 -->
+    <div v-if="!loaded" class="loading">加载中。。。</div>
+<!-- 文章列表加载 -->
+    <div v-else v-for='(item,i) in list'>
+      <li-article :article='item'></li-article>
+    </div>
+    
+
+
+    <!-- 分页 -->
+    <div class="pages">
+      <span @click="cut('1')">上一页</span>
+      <span @click="cut('0')">下一页</span>
+    </div>
+ </div>
+
+<!-- 引入vue -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!-- 引入axios -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <!--引入自己封装的组件  -->
+  <script src='./components/li-article.js'></script>
+  <!-- 引入自己的js -->
+  <script src='./app.js'></script>
+
+</body>
+</html>
